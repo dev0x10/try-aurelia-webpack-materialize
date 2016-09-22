@@ -1,0 +1,27 @@
+<template bindable="router">
+  <md-navbar fixed="true">
+    <div class="navbar-fixed">
+      <nav class="primary blue" style="padding:0 10px;">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo left show-on-medium hide-on-med-and-down">${router.title}</a>
+          <ul class="right show-on-medium  hide-on-med-and-down">
+            <li md-waves repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+              <a href.bind="row.href">${row.title}</a>
+            </li>
+            <li>
+              <a md-dropdown="activates: dropdownMenu; below-origin: true;">
+                Dropdown
+              </a>
+            </li>
+          </ul>
+          <ul id="dropdownMenu" class="dropdown-content">
+            <li md-waves repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+              <a href.bind="row.href" class="amber lighten-3 brown-text">${row.title}</a>
+            </li>
+            <li class="divider"></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </md-navbar>
+</template>
